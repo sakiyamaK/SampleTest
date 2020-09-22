@@ -4,7 +4,6 @@
 //
 //  Created by sakiyamaK on 2020/09/22.
 //
-
 import XCTest
 import Quick
 import Nimble
@@ -28,7 +27,7 @@ class CounterSpec: QuickSpec {
 
       it("初期値は0であること") {
         expect(counter.count).to(equal(0))
-//        XCTAssertEqual(counter.count, 0)
+        //        XCTAssertEqual(counter.count, 0)
       }
 
       describe("#increment") {
@@ -63,3 +62,4 @@ class CounterSpec: QuickSpec {
     }
   }
 }
+
