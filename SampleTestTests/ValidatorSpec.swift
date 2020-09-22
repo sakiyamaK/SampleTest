@@ -35,19 +35,20 @@ final class ValidatorSpec: QuickSpec {
       }
     }
 
-    xdescribe("xをつけて実行しないようにする") {
-      context("実行しない") {
-        it("falseを返す") {
-          expect("".isEmpty).to(beFalse())
-        }
-      }
-      //これも実行しない
-      xcontext("実行しない") {
-        it("falseを返す") {
-          expect("".isEmpty).to(beFalse())
-        }
-      }
-    }
+//    xdescribe("xをつけて実行しないようにする") {
+    //fがあると実行する
+//    fcontext("実行する") {
+//      it("falseを返す") {
+//        expect("".isEmpty).to(beTrue())
+//      }
+//    }
+//    //これも実行しない
+//    xcontext("実行しない") {
+//      it("falseを返す") {
+//        expect("".isEmpty).to(beFalse())
+//      }
+//    }
+//    }
   }
 }
 
