@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B64E1C84251CD12900B3D494 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B64E1C83251CD12900B3D494 /* SnapKit */; };
+		B62A1DF9251E3ACA002F81CB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B62A1DF8251E3ACA002F81CB /* SnapKit */; };
+		B62A1DFC251E4070002F81CB /* CounterStrageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A1DFB251E4070002F81CB /* CounterStrageMock.swift */; };
 		B64E1C9A251CDA7300B3D494 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E1C99251CDA7300B3D494 /* Counter.swift */; };
 		B67684A52519FD48007B467C /* NimbleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67684A42519FD48007B467C /* NimbleTests.swift */; };
 		B67684AA251A0582007B467C /* AsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67684A9251A0582007B467C /* AsyncTests.swift */; };
 		B67684F9251A5665007B467C /* OriginalMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67684F8251A5665007B467C /* OriginalMatcherTests.swift */; };
 		B67684FE251A579F007B467C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67684FD251A579F007B467C /* Person.swift */; };
 		B69CE3D325189B87001A86D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE3D225189B87001A86D3 /* AppDelegate.swift */; };
-		B69CE3D725189B87001A86D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE3D625189B87001A86D3 /* ViewController.swift */; };
+		B69CE3D725189B87001A86D3 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE3D625189B87001A86D3 /* CounterViewController.swift */; };
 		B69CE3DC25189B87001A86D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B69CE3DB25189B87001A86D3 /* Assets.xcassets */; };
 		B69CE3DF25189B87001A86D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B69CE3DD25189B87001A86D3 /* LaunchScreen.storyboard */; };
 		B69CE3F525189B87001A86D3 /* SampleTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE3F425189B87001A86D3 /* SampleTestUITests.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B62A1DFB251E4070002F81CB /* CounterStrageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterStrageMock.swift; sourceTree = "<group>"; };
 		B64E1C99251CDA7300B3D494 /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		B67684A42519FD48007B467C /* NimbleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimbleTests.swift; sourceTree = "<group>"; };
 		B67684A9251A0582007B467C /* AsyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncTests.swift; sourceTree = "<group>"; };
@@ -65,7 +67,7 @@
 		B67684FD251A579F007B467C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		B69CE3CF25189B87001A86D3 /* SampleTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B69CE3D225189B87001A86D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B69CE3D625189B87001A86D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B69CE3D625189B87001A86D3 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 		B69CE3DB25189B87001A86D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B69CE3DE25189B87001A86D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B69CE3E025189B87001A86D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B64E1C84251CD12900B3D494 /* SnapKit in Frameworks */,
+				B62A1DF9251E3ACA002F81CB /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B62A1DFA251E4062002F81CB /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B62A1DFB251E4070002F81CB /* CounterStrageMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		B69CE3C625189B87001A86D3 = {
 			isa = PBXGroup;
 			children = (
@@ -151,7 +161,7 @@
 				B69CE42725189C8D001A86D3 /* Model */,
 				B69CE42925189C8D001A86D3 /* Utility */,
 				B69CE3D225189B87001A86D3 /* AppDelegate.swift */,
-				B69CE3D625189B87001A86D3 /* ViewController.swift */,
+				B69CE3D625189B87001A86D3 /* CounterViewController.swift */,
 				B69CE3DB25189B87001A86D3 /* Assets.xcassets */,
 				B69CE3DD25189B87001A86D3 /* LaunchScreen.storyboard */,
 				B69CE3E025189B87001A86D3 /* Info.plist */,
@@ -162,6 +172,7 @@
 		B69CE3E825189B87001A86D3 /* SampleTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				B62A1DFA251E4062002F81CB /* Mock */,
 				B69CE41025189C72001A86D3 /* CalculatorTests.swift */,
 				B69CE41125189C72001A86D3 /* DialogmanagerTests.swift */,
 				B69CE40D25189C71001A86D3 /* SampleTests.swift */,
@@ -245,7 +256,7 @@
 			);
 			name = SampleTest;
 			packageProductDependencies = (
-				B64E1C83251CD12900B3D494 /* SnapKit */,
+				B62A1DF8251E3ACA002F81CB /* SnapKit */,
 			);
 			productName = SampleTest;
 			productReference = B69CE3CF25189B87001A86D3 /* SampleTest.app */;
@@ -328,7 +339,7 @@
 				B6EECEB7251CCB0F0032F981 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
 				B6EECEBC251CCB270032F981 /* XCRemoteSwiftPackageReference "Nimble" */,
 				B6EECEBF251CCB380032F981 /* XCRemoteSwiftPackageReference "Quick" */,
-				B64E1C82251CD12900B3D494 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B62A1DF7251E3ACA002F81CB /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = B69CE3D025189B87001A86D3 /* Products */;
 			projectDirPath = "";
@@ -377,7 +388,7 @@
 				B69CE43425189C8D001A86D3 /* DialogManager.swift in Sources */,
 				B69CE43025189C8D001A86D3 /* User.swift in Sources */,
 				B69CE43525189C8D001A86D3 /* APIManager.swift in Sources */,
-				B69CE3D725189B87001A86D3 /* ViewController.swift in Sources */,
+				B69CE3D725189B87001A86D3 /* CounterViewController.swift in Sources */,
 				B69CE43625189C8D001A86D3 /* Utils.swift in Sources */,
 				B69CE3D325189B87001A86D3 /* AppDelegate.swift in Sources */,
 				B69CE43C25189CAD001A86D3 /* String+.swift in Sources */,
@@ -402,6 +413,7 @@
 				B67684F9251A5665007B467C /* OriginalMatcherTests.swift in Sources */,
 				B67684A52519FD48007B467C /* NimbleTests.swift in Sources */,
 				B69CE41625189C72001A86D3 /* DialogmanagerTests.swift in Sources */,
+				B62A1DFC251E4070002F81CB /* CounterStrageMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,7 +503,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -546,7 +558,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -563,6 +575,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SampleTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -581,6 +594,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SampleTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -599,7 +613,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SampleTestTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -620,7 +634,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SampleTestTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -714,7 +728,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B64E1C82251CD12900B3D494 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		B62A1DF7251E3ACA002F81CB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
 			requirement = {
@@ -749,9 +763,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B64E1C83251CD12900B3D494 /* SnapKit */ = {
+		B62A1DF8251E3ACA002F81CB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B64E1C82251CD12900B3D494 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = B62A1DF7251E3ACA002F81CB /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 		B6EECEB8251CCB0F0032F981 /* OHHTTPStubsSwift */ = {

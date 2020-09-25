@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+class CounterViewController: UIViewController {
 
   private let mainStackView: UIStackView = .init()
 
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
   }
 }
 
-private extension ViewController {
+private extension CounterViewController {
 
   func configureViews() {
     view.addSubview(mainStackView)
@@ -97,24 +97,24 @@ private extension ViewController {
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
 
-struct ViewController_Wrapper: UIViewControllerRepresentable {
+struct CounterViewController_Wrapper: UIViewControllerRepresentable {
 
   // 初期化メソッド
-  func makeUIViewController(context: Context) -> ViewController {
-    let vc = ViewController()
+  func makeUIViewController(context: Context) -> CounterViewController {
+    let vc = CounterViewController()
     return vc
   }
 
   // SwiftUI側から更新がかかったときに呼ばれるメソッド
-  func updateUIViewController(_ vc: ViewController, context: Context) {
+  func updateUIViewController(_ vc: CounterViewController, context: Context) {
     // 更新用のメソッド
   }
 }
 
-struct ViewController_Previews: PreviewProvider {
+struct CounterViewController_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      ViewController_Wrapper()
+      CounterViewController_Wrapper()
     }
   }
 }

@@ -49,6 +49,59 @@ class CounterSpec: QuickSpec {
         }
       }
 
+      describe("#isLowerLimt") {
+        context("現在値が0") {
+          it("trueになる") {
+            expect(Counter(count: 0).isLowerLimit) == true
+          }
+        }
+        context("現在値が1以上") {
+          it("falseになる") {
+            expect(Counter(count: 1).isLowerLimit) == false
+          }
+        }
+      }
+
+      describe("#isLowerLimt") {
+        context("現在値が10") {
+          it("trueになる") {
+            expect(Counter(count: 10).isUpperLimit) == true
+          }
+        }
+        context("現在値が10未満") {
+          it("falseになる") {
+            expect(Counter(count: 9).isUpperLimit) == false
+          }
+        }
+      }
+
+      describe("永続化") {
+        context("現在値が2") {
+          var counter: Counter!
+          var counterStrageMock: CounterStrageMock!
+
+          beforeEach {
+            DLog("----- beforeEach -----")
+            counterStrageMock = CounterStrageMock()
+            counter = Counter(count: 2, counterStrageProtocol: counterStrageMock)
+          }
+
+          context("#increment") {
+            it("CounterStrageProtocol.save()が引数3で呼び出されること") {
+              counter.increment()
+              expect(counterStrageMock.latestSaveCount) == 3
+            }
+          }
+
+          context("#decrement") {
+            it("CounterStrageProtocol.save()が引数1で呼び出されること") {
+              counter.decrement()
+              expect(counterStrageMock.latestSaveCount) == 1
+            }
+          }
+        }
+      }
+
       //この階層に定義されたitの直後に呼ばれる
       //今回の場合はbeforeEachで初期化してるから本来はやる必要はない
       afterEach {
