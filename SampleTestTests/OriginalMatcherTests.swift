@@ -10,6 +10,7 @@ import Quick
 import Nimble
 @testable import SampleTest
 
+//オリジナルの期待値の作り方
 func beTeen() -> Predicate<Person> {
   //expectで渡された式がactualExpressionに代入される
   return Predicate { (actualExpression: Expression<Person>) throws -> PredicateResult in

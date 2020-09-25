@@ -9,6 +9,8 @@
 import XCTest
 @testable import SampleTest
 
+//基本的なXCTestの書き方
+
 class DialogManagerTests: XCTestCase {
   func testShowLoginDialog_ログイン済み() {
     let stubAuthManager = StubAuthManager()

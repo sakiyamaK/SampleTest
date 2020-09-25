@@ -10,6 +10,7 @@ import Quick
 import Nimble
 @testable import SampleTest
 
+//基本的なNimbleの書き方
 class NimbleTests: QuickSpec {
   override func spec() {
 

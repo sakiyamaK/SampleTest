@@ -11,6 +11,7 @@ import OHHTTPStubs
 import OHHTTPStubsSwift
 @testable import SampleTest
 
+//HTTP通信のテスト
 class UserManagerTests: XCTestCase {
   private var userManager: UserManager!
 

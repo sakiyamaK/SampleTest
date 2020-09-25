@@ -10,6 +10,7 @@ import Quick
 import Nimble
 @testable import SampleTest
 
+//非同期処理のテストの書き方
 func asyncEcho(_ message: String, deadline: DispatchTime = .now() + 0.5,  _ completion:((String) -> Void)? = nil) {
   DispatchQueue.main.asyncAfter(deadline: deadline) {
     completion?("\(message)")

@@ -9,6 +9,7 @@ import Quick
 import Nimble
 @testable import SampleTest
 
+//DIでMockを使ったテスト
 class CounterSpec: QuickSpec {
   override func spec() {
     beforeSuite {

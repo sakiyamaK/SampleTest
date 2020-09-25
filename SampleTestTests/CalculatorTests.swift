@@ -9,6 +9,7 @@
 import XCTest
 @testable import SampleTest
 
+//基本的なXCTestの書き方
 class CalculatorTests: XCTestCase {
   func testAdd() {
     let mockLogger = MockLogger()

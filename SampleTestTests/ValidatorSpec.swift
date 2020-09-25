@@ -11,6 +11,7 @@ import Quick
 import Nimble
 @testable import SampleTest
 
+//基本的なQuick/Nimbleの書き方
 final class ValidatorSpec: QuickSpec {
   override func spec() {
     //Qickによるテストの構造化
