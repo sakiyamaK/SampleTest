@@ -1,0 +1,118 @@
+name: main
+on:
+  push:
+    branches: [ main, develop ]
+    paths-ignore: [ README.md ]
+  pull_request:
+    branches: [ main, develop ]
+    paths-ignore: [ README.md ]
+env:
+  DEVELOPER_DIR: /Applications/Xcode_12.3.app
+jobs:
+  build:
+    runs-on: macos-latest
+    env:
+      MINT_PATH: mint/lib
+      MINT_LINK_PATH: mint/bin
+      HOMEBREW_NO_AUTO_UPDATE: 1 
+      HOMEBREW_NO_INSTALL_CLEANUP: 1
+
+    steps:
+    - uses: actions/checkout@v2
+
+    # Xcodeのリストを表示
+    - name: Show Xcode list
+      run: ls /Applications | grep 'Xcode'    
+
+    # Xcodeのバージョンを表示
+    - name: Show Xcode version
+      run: xcodebuild -version
+
+    # Homebrewのupdateと管理しているライブラリのキャッシュ (Mintのみ)
+    - name: Update Homebrew
+      run: |
+        brew update --preinstall
+        cat "$(brew --repository)/Library/Taps/homebrew/homebrew-core/Formula/mint.rb" > .github/brew-formulae
+
+    - name: Cache Homebrew
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/Library/Caches/Homebrew/mint
+          ~/Library/Caches/Homebrew/downloads/mint
+        key: brew-${{ hashFiles('.github/brew-formulae') }}
+        restore-keys: brew-
+
+    # Gemで管理しているライブラリのキャッシュ
+    - name: Cache Gems
+      uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    # Mintで管理しているライブラリのキャッシュ
+    - name: Cache Mint packages
+      uses: actions/cache@v2
+      with:
+        path: mint
+        key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
+        restore-keys: |
+          ${{ runner.os }}-mint-
+  
+    # CocoaPodsで管理しているライブラリのキャッシュ
+    - name: Cache Pods
+      uses: actions/cache@v2
+      with:
+        path: Pods
+        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-   
+
+     # Mintのインストール
+    - name: Install Mint
+      run: brew install mint
+
+    # スクリプトの実行
+    - name: run setup script
+      run: ./script/setup.sh
+
+    # Xcodeでビルド 
+    - name: Xcode build
+      run: set -o pipefail &&
+        xcodebuild
+        -sdk iphonesimulator
+        -configuration Debug
+        -workspace SampleTest.xcworkspace
+        -scheme SampleTest
+        build
+        | bundle exec xcpretty
+
+    # 単体テストの実行
+    - name: Run tests
+      run: set -o pipefail &&
+        xcodebuild
+        -sdk iphonesimulator
+        -configuration Debug
+        -workspace SampleTest.xcworkspace
+        -scheme SampleTest
+        -destination 'platform=iOS Simulator,name=iPhone 12'
+        clean test
+        | bundle exec xcpretty --report html
+
+    # コードカバレッジの出力
+    - name: Convert Code coverage to HTML
+      run: bundle exec slather coverage --html --output-directory html_report
+
+    # テスト結果のアップロード
+    - uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: build/reports
+
+    # コードカバレッジのアップロード
+    - uses: actions/upload-artifact@v2
+      with:
+        name: test-coverage
+        path: html_report

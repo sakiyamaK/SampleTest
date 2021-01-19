@@ -1,0 +1,7 @@
+# coverage_service: cobertura_xml
+# source_directory: SampleTestTests
+xcodeproj: SampleTest.xcodeproj
+workspace: SampleTest.xcworkspace
+scheme: SampleTest
+ignore:
+  - Pods/*

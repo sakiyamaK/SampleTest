@@ -1,0 +1,5 @@
+Gemfile.lock
+R.generated.swift
+*.xcodeproj
+*.xcworkspace
+*test_output

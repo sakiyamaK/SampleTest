@@ -1,0 +1,99 @@
+name: SampleTest
+# configs:
+#     Debug: debug
+#     Release: release
+# configFiles:
+#   Debug: configs/Debug.xcconfig
+#   Release: configs/Release.xcconfig
+options:
+  bundleIdPrefix: com.sakiyamaK.*
+  deploymentTarget:
+    iOS: 13.0
+packages:
+  OHHTTPStubs:
+    url: https://github.com/AliSoftware/OHHTTPStubs
+    from: 9.0.0
+  Nimble:
+    url: https://github.com/Quick/Nimble
+    from: 8.1.2
+  Quick:
+    url: https://github.com/Quick/Quick
+    from: 3.0.0
+  SnapKit:
+      url: https://github.com/SnapKit/SnapKit
+      from: 5.0.1
+configs:
+  Debug: debug
+  Release: release
+schemes:
+  SampleTest:
+    build:
+      targets:
+        SampleTest: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - SampleTest
+      targets:
+        - name: SampleTestTests
+          parallelizable: true
+          randomExecutionOrder: true
+        - name: SampleTestUITests
+          parallelizable: true
+          randomExecutionOrder: true
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+
+targets:
+  SampleTest:
+    platform: iOS
+    type: application
+    sources:
+      - path: SampleTest/
+      - path: R.generated.swift
+        optional: true
+    dependencies:
+      - package: SnapKit
+    # configFiles:
+    #     Debug: configs/Debug.xcconfig
+    #     Release: configs/Release.xcconfig
+    preBuildScripts:
+        - path: /bin/sh
+          name: Run Script(R.swift)
+          script: |
+                "$PODS_ROOT/R.swift/rswift" generate "$SRCROOT/R.generated.swift"
+          inputFiles:
+                - $TEMP_DIR/rswift-lastrun
+          outputFiles:
+                - $SRCROOT/R.generated.swift
+
+  # Unit Test
+  SampleTestTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources: SampleTestTests
+    dependencies:
+      - package: Nimble
+      - package: Quick
+      - package: OHHTTPStubs
+        product: OHHTTPStubsSwift
+      - target: SampleTest
+
+      # UI Test
+  SampleTestUITests:
+    platform: iOS
+    type: bundle.unit-test
+    sources: SampleTestUITests
+    dependencies:
+      - package: Nimble
+      - package: Quick
+      - package: OHHTTPStubs
+        product: OHHTTPStubsSwift
+      - target: SampleTest
