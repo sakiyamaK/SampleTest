@@ -27,7 +27,7 @@ class NimbleTests: QuickSpec {
         it("2") {
           //1.1の±0.1の範囲内か
           expect(1.2).to(beCloseTo(1.1, within: 0.1))
-          expect(1.2) == 1.1 ± 0.01
+          expect(1.2) == 1.1 ± 0.1
         }
 
         it("3") {
