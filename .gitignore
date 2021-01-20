@@ -3,3 +3,4 @@ R.generated.swift
 *.xcodeproj
 *.xcworkspace
 *test_output
+report.xml
