@@ -39,10 +39,10 @@ schemes:
         - SampleTest
       targets:
         - name: SampleTestTests
-          parallelizable: true
+          # parallelizable: true
           randomExecutionOrder: true
         - name: SampleTestUITests
-          parallelizable: true
+          # parallelizable: true
           randomExecutionOrder: true
     profile:
       config: Release
