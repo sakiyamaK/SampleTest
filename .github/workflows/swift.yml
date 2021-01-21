@@ -90,29 +90,29 @@ jobs:
         | bundle exec xcpretty
 
     # 単体テストの実行
-    - name: Run tests
-      run: set -o pipefail &&
-        xcodebuild
-        -sdk iphonesimulator
-        -configuration Debug
-        -workspace SampleTest.xcworkspace
-        -scheme SampleTest
-        -destination 'platform=iOS Simulator,name=iPhone 12'
-        clean test
-        | bundle exec xcpretty --report html
+    # - name: Run tests
+    #   run: set -o pipefail &&
+    #     xcodebuild
+    #     -sdk iphonesimulator
+    #     -configuration Debug
+    #     -workspace SampleTest.xcworkspace
+    #     -scheme SampleTest
+    #     -destination 'platform=iOS Simulator,name=iPhone 12'
+    #     clean test
+    #     | bundle exec xcpretty --report html
 
-    # コードカバレッジの出力
-    - name: Convert Code coverage to HTML
-      run: bundle exec slather coverage --html --output-directory html_report
+    # # コードカバレッジの出力
+    # - name: Convert Code coverage to HTML
+    #   run: bundle exec slather coverage --html --output-directory html_report
 
-    # テスト結果のアップロード
-    - uses: actions/upload-artifact@v2
-      with:
-        name: test-results
-        path: build/reports
+    # # テスト結果のアップロード
+    # - uses: actions/upload-artifact@v2
+    #   with:
+    #     name: test-results
+    #     path: build/reports
 
-    # コードカバレッジのアップロード
-    - uses: actions/upload-artifact@v2
-      with:
-        name: test-coverage
-        path: html_report
+    # # コードカバレッジのアップロード
+    # - uses: actions/upload-artifact@v2
+    #   with:
+    #     name: test-coverage
+    #     path: html_report
