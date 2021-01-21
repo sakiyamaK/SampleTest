@@ -41,9 +41,9 @@ schemes:
         - name: SampleTestTests
           # parallelizable: true
           randomExecutionOrder: true
-        - name: SampleTestUITests
-          # parallelizable: true
-          randomExecutionOrder: true
+        # - name: SampleTestUITests
+        #   # parallelizable: true
+        #   randomExecutionOrder: true
     profile:
       config: Release
     analyze:
@@ -86,14 +86,14 @@ targets:
         product: OHHTTPStubsSwift
       - target: SampleTest
 
-      # UI Test
-  SampleTestUITests:
-    platform: iOS
-    type: bundle.unit-test
-    sources: SampleTestUITests
-    dependencies:
-      - package: Nimble
-      - package: Quick
-      - package: OHHTTPStubs
-        product: OHHTTPStubsSwift
-      - target: SampleTest
+  # UI Test
+  # SampleTestUITests:
+  #   platform: iOS
+  #   type: bundle.unit-test
+  #   sources: SampleTestUITests
+  #   TEST_TARGET_NAME: SampleTest
+  #   dependencies:
+  #     - package: Nimble
+  #     - package: Quick
+  #     - package: OHHTTPStubs
+  #       product: OHHTTPStubsSwift
